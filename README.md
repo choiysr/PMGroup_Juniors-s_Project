@@ -82,7 +82,7 @@
 |------|---|
 |레퍼런스를 이용해서 다른객체로 이동 가능| 릴레이션에서 객체를 이용한 이동은 데이터를 조회하는데 있어서 매우 비효율 적임|
 |컬렉션을 순회 할 수 있음| 데이터베이스 요청을 적게 할 수록 성능이 좋음 따라서 Join을 사용함 |
-|#| Join을 통해 한번에 너무 많이 가지고오면 그것도 문제임. 그렇다고 lazy loading을 해도 문제가됨.|
+|#| Join을 통해 한번에 너무 많이 가지고오면 그것도 문제임. 그렇다고 lazy loading을 해도 문제가됨|
 
 
 * * *
@@ -93,6 +93,40 @@
   * "엔티티"는 객체를 부르는 이름
   * 보통 클래스와 같은 이름을 사용하기 때문에 값을 변경하지 않는다.
   * 엔티티의 이름은 JQL에서 쓰임
+
+* @Table
+  * "릴레이션"에서 부르는 이름
+  * @Entity의 이름이 기본값
+  * 테이블의 이름은 SQL에서 사용
+
+* @Id
+  * 엔티티의 주키를 맵핑할 때 사용
+  * 자바의 모든 primitive 타입과 그 랩퍼 타입을 사용할 수 있음 (Date, BigDecimal, BigInteger도 사용 가능)
+  * 복합키를 만들때 맵핑하는 방법도 있음
+
+* @GeneratedValue
+  * 주키의 생성 방법을 맵핑할때 사용함
+  * @Entity의 이름이 기본값.
+  * 생성전략과 생성기를 설정할 수 있음.
+    * 기본 전략은 AUTO, 사용하는 DB에 따라 적절한 전략 선택
+    * TABLE, SEQUENCE, IDENTITY 중 하나.
+
+* @Column
+  * unique
+  * nullable
+  * length
+  * columnDefinition
+
+* @Temporal
+  * Date Calendar 지원
+
+* @Transient
+  * 컬럼으로 맵핑 하고 싶지 않은 멤버
+
+* application.properties 
+  * spring.jpa.show-sql=true  // 쿼리 보여줌
+  * spring.jpa.properties.hibernate.format_sql=true
+
 
 
 
