@@ -1,9 +1,13 @@
 package com.pmg.juniors.domain;
 
-import javax.jdo.annotations.Column;
+import java.util.Date;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -17,12 +21,16 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Account {
 
-    @Id @GeneratedValue  // @Id 데이터베이스 주키 맵핑 , @GeneratedValue 자동으로 생성되는 값 설정
+    @Id @GeneratedValue // @Id 데이터베이스 주키 맵핑 , @GeneratedValue 자동으로 생성되는 값 설정
     private Long id;
 
     @Column // 명시적으로 작성하지 않아도 컬럼으로 자동인식
     private String username;
 
     private String password;
+
+    @Column
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date created;
     
 }
