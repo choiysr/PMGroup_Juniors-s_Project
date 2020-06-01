@@ -38,7 +38,5 @@ public class JpaRunner implements ApplicationRunner { // ApplicationRunner ìŠ¤í”
         session.save(sessionAccount);
 
         // entityManager.persist(account);
-
-    }
-    
+    }  
 }
