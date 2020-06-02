@@ -8,7 +8,7 @@ public class BaseController {
 
     @RequestMapping("/")
     public String start() {
-        return "index";
+        return "index2";
     }
     
 }
