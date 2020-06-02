@@ -2,6 +2,9 @@ package com.pmg.juniors.domain;
 
 import java.util.Date;
 
+import java.time.LocalDateTime;
+
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -10,9 +13,13 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 /**
@@ -21,6 +28,7 @@ import lombok.NoArgsConstructor;
 @Entity
 @Table(name = "tbl_board")
 @Builder
+@Getter
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
@@ -39,5 +47,9 @@ public class Board {
     @Temporal(TemporalType.TIMESTAMP)
     private Date created;
 
-    
+    @CreationTimestamp
+    private LocalDateTime regdate;
+
+    @UpdateTimestamp
+    private LocalDateTime updateddate;
 }

@@ -35,16 +35,28 @@ dependencies {
 
 	compileOnly 'org.projectlombok:lombok'
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+
 	annotationProcessor 'org.projectlombok:lombok'
 
 	// thymeleaf
 	compile group: 'org.springframework.boot', name: 'spring-boot-starter-thymeleaf', version: '2.3.0.RELEASE'
 	
 	
-
 	testImplementation('org.springframework.boot:spring-boot-starter-test') {
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
 	}
+	
+	// https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-thymeleaf
+	// html 화면매핑을 위한 tymeleaf dependency 추가
+	compile group: 'org.springframework.boot', name: 'spring-boot-starter-thymeleaf', version: '2.3.0.RELEASE'
+
+
+/* 	// tomcat-embed-jasper 
+	// Spring Boot에서 embeded Tomcat을 사용하는 경우 JSP를 처리하는 서블릿을 추가하지 않아 화면매핑이 안됨.
+	// 따라서 JSP페이지를 매핑하기 위해서는 tomcat-embed-jasper dependency를 추가해주어야 함.
+	implementation 'org.apache.tomcat.embed:tomcat-embed-jasper' 
+*/
+
 }
 
 test {
